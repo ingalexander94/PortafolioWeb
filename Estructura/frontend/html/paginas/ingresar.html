@@ -1,0 +1,73 @@
+<section class="page-section" id="contact">
+  <div class="container">
+
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Iniciar Sesión</h2>
+
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto rounded border border-primary text-center pb-3">
+          <img src="{{url}}" class="m-4" alt="Error al cargar..">
+          <hr>
+          <form method="POST" class="p-4" style="background: #2c3e50" ng-submit="iniciarSesion()">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background: white" id="basic-addon1"><i class="fas fa-at"
+                    style="color: #1abc9c;font-size: 20px;"></i></span>
+              </div>
+              <input class="form-control" ng-model="usuario.admin" ng-change="animar()" ng-click="animar()" value="alexanderpenaloza3@gmail.com" placeholder="Correo" style="border-left: none;" id="email" type="text"
+                title="Correo" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background: white" id="basic-addon1"><i class="fas fa-key"
+                    style="color: #1abc9c;font-size: 20px;"></i></span>
+              </div>
+              <input class="form-control" ng-model="usuario.clave" ng-focus="esconder()" value="Realmadrid94" placeholder="Contraseña" style="border-left: none;" id="password" type="password" title="Contraseña"
+                required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3 btn-block">Entrar <i class="fas fa-sign-in-alt ml-2" ng-show="!cargando"></i> <i class="fas fa-spinner fa-pulse ml-2" ng-show="cargando"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ul class='c-notification__container' ng-show="error">
+  <li class='c-notification c-notification--danger c-notification--show animated bounceInRight'>
+      <div class='c-notification__icon-container'>
+          <div class='c-notification__icon'>
+              <i class="fas fa-times"></i>
+          </div>
+      </div>
+      <div class='c-notification__message'>
+          {{mensaje}}
+      </div>
+      <a class='c-notification__close' ng-click="error=false">
+          <i class="fas fa-times-circle"></i>
+      </a>
+  </li>
+</ul>
+<ul class='c-notification__container' ng-show="correcto">
+  <li class='c-notification c-notification--success c-notification--show animated bounceInRight'>
+      <div class='c-notification__icon-container'>
+          <div class='c-notification__icon'>
+              <i class="fas fa-check"></i>
+          </div>
+      </div>
+      <div class='c-notification__message'>
+          {{mensaje}}
+      </div>
+      <a class='c-notification__close' ng-click="correcto=false">
+          <i class="fas fa-times-circle"></i>
+      </a>
+  </li>
+</ul>

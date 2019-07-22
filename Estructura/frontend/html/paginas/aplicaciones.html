@@ -1,0 +1,75 @@
+<section class="page-section" id="aplicaciones">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mis aplicaciones</h2>
+
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="text-center" ng-show="cargando">
+            <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mt-4" ng-repeat="aplicacion in aplicaciones">
+                <div class="aplicacion-item rounded mx-auto" data-toggle="modal" data-target="#portfolioModal1"
+                    ng-click="mostrarDetalles(aplicacion.id)">
+                    <div class="aplicacion-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="aplicacion-item-caption-content text-center text-white">
+                            <i class="fas fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid rounded" style="height: 220px;width: 100%;" src="{{aplicacion.foto}}" alt="Error al cargar">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+            <div class="modal-body text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{aplicacion.titulo}}
+                            </h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <img class="img-fluid rounded mb-5" src="{{aplicacion.foto}}" alt="Error al cargar">
+                            <p>{{aplicacion.descripcion}}</p>
+                            <div class="row mb-5">
+                                <div class="mx-auto">
+                                        <button ng-repeat="tecnologia in aplicacion.tecnologias" title="{{tecnologia.nombre}}" class="btn btn-{{tecnologia.color}} m-2" title="{{tecnologia.nombre}}">
+                                            <i class="{{tecnologia.foto}}"></i>
+                                        </button>
+                                </div>
+                            </div>
+                            <p>Fecha de publicación: {{aplicacion.fecha | date:"EEEE, MMMM d, y"}}</p>
+                            <hr>
+                            <a class="btn btn-primary" href="{{aplicacion.link}}" target="__blank">
+                                Descargar <i class="fas fa-download ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

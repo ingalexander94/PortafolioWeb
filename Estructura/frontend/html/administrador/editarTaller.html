@@ -1,0 +1,102 @@
+<section class="page-section" id="contact">
+    <div class="container">
+
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Actualizar {{taller.titulo}}
+        </h2>
+
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <form method="POST" id="contactForm" ng-submit="actualizarTaller()">
+                    <input type="hidden" name="tallerActualizar" ng-model="taller.id">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="background: white" id="basic-addon1"><i
+                                    class="fas fa-pencil-alt" style="color: #1abc9c;font-size: 20px;"></i></span>
+                        </div>
+                        <input class="form-control" style="border-left: none;" id="name" type="text" title="Titulo"
+                            autofocus required ng-model="taller.titulo">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="background: white" id="basic-addon1"><i
+                                    class="fas fa-link" style="color: #1abc9c;font-size: 20px;"></i></span>
+                        </div>
+                        <input class="form-control" style="border-left: none;" id="email" type="url"
+                            title="Link de descarga" required ng-model="taller.link">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="background: white" id="basic-addon1"><i
+                                    class="far fa-file-alt" style="color: #1abc9c;font-size: 20px;"></i></span>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" title="Tipo de Archivo"
+                            style="border-left: none;" required ng-model="taller.archivo">
+                            <option selected disabled>No Selección</option>
+                            <option value="1">WORD</option>
+                            <option value="2">PDF</option>
+                            <option value="3">RAR</option>
+                            <option value="4">EXCEL</option>
+                            <option value="5">POWER POINT</option>
+                            <option value="6">PRUEBA</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="background: white" id="basic-addon1"><i
+                                    class="far fa-calendar-alt" style="color: #1abc9c;font-size: 20px;"></i></span>
+                        </div>
+                        <input class="form-control" style="border-left: none;" id="fecha" type="date"
+                            title="Fecha de entrega" required ng-model="taller.fecha">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="background: white" id="basic-addon1"><i
+                                    class="fas fa-file-signature" style="color: #1abc9c;font-size: 20px;"></i></span>
+                        </div>
+                        <input class="form-control" style="border-left: none;" id="nombre" type="text"
+                            title="Nombre Taller" required ng-model="taller.nombre">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="background: white" id="basic-addon1"><i
+                                    class="fas fa-edit" style="color: #1abc9c;font-size: 20px;"></i></span>
+                        </div>
+                        <textarea class="form-control" style="border-left: none;" id="descripcion" rows="3"
+                            title="Descripción" required ng-model="taller.descripcion"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="background: white" id="basic-addon1"><i
+                                    class="fas fa-book-reader" style="color: #1abc9c;font-size: 20px;"></i></span>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" title="Curso" style="border-left: none;"
+                            required ng-model="taller.curso">
+                            <option selected disabled>No Selección</option>
+                            <option value="1">Análisis y Diseño</option>
+                            <option value="2">Ingenieria de Software</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" id="sendMessageButton">Actualizar
+                            <i class="fas fa-sync-alt ml-2"></i></button>
+                        <a href="#!administrarTalleres" class="btn btn-danger btn-block">Cancelar
+                            <i class="fas fa-times-circle ml-2"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div ng-include="notificacion" ng-show="mostrar">
+
+</div>

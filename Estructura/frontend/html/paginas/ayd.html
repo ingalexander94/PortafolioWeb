@@ -1,0 +1,77 @@
+<section class="page-section" id="aplicaciones">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Análisis y Diseño</h2>
+
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="text-center" ng-show="cargando">
+            <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group mb-3 col-md-8 mx-auto">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="background: white" id="basic-addon1"><i class="fas fa-search"
+                            style="color: #1abc9c;font-size: 20px;"></i></span>
+                </div>
+                <input class="form-control" style="border-left: none;" id="name" type="text" placeholder="Buscar"
+                    required ng-model="busqueda">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mt-4" ng-repeat="taller in talleres | filter:busqueda">
+                <div class="aplicacion-item rounded mx-auto" data-toggle="modal" data-target="#portfolioModal1"
+                    ng-click="mostrarDetalles(taller.id)">
+                    <div class="aplicacion-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="aplicacion-item-caption-content text-center text-white">
+                            <i class="fas fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid rounded" src="{{taller.foto}}" alt="Error al cargar">
+                </div>
+                <h4 class="text-center"><span class="badge badge-primary">{{taller.titulo}}</span></h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+            <div class="modal-body text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{taller.nombre}}</h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <p class="mb-5">{{taller.descripcion}}</p>
+                            <p>Fecha de presentación: {{taller.fecha | date:"EEEE, MMMM d, y"}}</p>
+                            <hr>
+                            <a class="btn btn-primary" href="{{taller.link}}" target="__blank">
+                                Descargar <i class="fas fa-download ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
